@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/ForwardingRulesListFragment">
+
+    <fragment
+        android:id="@+id/ForwardingRulesListFragment"
+        android:name="com.syncloudsoft.mobserve.ui.ForwardingRulesListFragment"
+        android:label="@string/fragment_rules_list_fragment_label"
+        tools:layout="@layout/fragment_forwarding_rules_list">
+
+        <action
+            android:id="@+id/action_RulesList_to_New_Rule"
+            app:destination="@id/ForwardingRuleFragment" />
+
+        <action
+            android:id="@+id/action_RulesList_to_Existing_Rule"
+            app:destination="@id/ForwardingRuleFragment">
+
+            <argument
+                android:name="forwarding_rule_id"
+                app:argType="integer" />
+
+        </action>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/ForwardingRuleFragment"
+        android:name="com.syncloudsoft.mobserve.ui.ForwardingRuleFragment"
+        android:label="@string/fragment_rule_fragment_label"
+        tools:layout="@layout/fragment_forwarding_rule">
+
+        <action
+            android:id="@+id/action_Rule_to_RulesList"
+            app:destination="@id/ForwardingRulesListFragment" />
+
+    </fragment>
+
+</navigation>

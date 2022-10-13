@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Mobserve</string>
+    <string name="action_source">Source code</string>
+    <string name="action_undo">Undo</string>
+    <string name="fragment_rules_list_fragment_label">Rules</string>
+    <string name="fragment_rule_fragment_label">Rule</string>
+    <string name="notification_channel_label">Default</string>
+    <string name="notification_service_title">Checking for events</string>
+    <string name="notification_service_content">Processing new calls or text message as per set rules</string>
+    <string name="rule_created_message" formatted="false">New forwarding rule named %s has been created.</string>
+    <string name="rule_deleted_message" formatted="false">Forwarding rule named %s has been deleted.</string>
+    <string name="rule_name_error_required">Please enter a rule name.</string>
+    <string name="rule_name_hint">Name</string>
+    <string name="rule_direction_all_hint">All</string>
+    <string name="rule_direction_incoming_hint">Incoming</string>
+    <string name="rule_direction_outgoing_hint">Outgoing</string>
+    <string name="rule_direction_missed_hint">Missed</string>
+    <string name="rule_event_all_hint">All</string>
+    <string name="rule_event_call_hint">Phone call</string>
+    <string name="rule_event_sms_hint">SMS</string>
+    <string name="rule_participant_pattern_hint">Participant pattern</string>
+    <string name="rule_participant_pattern_helper_text">
+        This will be matched against incoming/outgoing number.
+        You can provide plain text or RegExp here.
+    </string>
+    <string name="rule_content_pattern_hint">Content pattern</string>
+    <string name="rule_content_pattern_helper_text">
+        This will be matched against message content.
+        You can provide plain text or RegExp here.
+    </string>
+    <string name="rule_regexp_error_invalid">Please enter a valid RegExp.</string>
+    <string name="rule_webhook_url_hint">Webhook URL</string>
+    <string name="rule_webhook_url_error_required">Please enter a URL.</string>
+    <string name="rule_webhook_url_error_invalid">Please enter a valid URL.</string>
+    <string name="save_label">Save</string>
+    <string name="sms_permission_rationale">Need SMS permission to read and process content.</string>
+</resources>

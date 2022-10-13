@@ -1,0 +1,8 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="form_margin">16dp</dimen>
+    <dimen name="field_margin">16dp</dimen>
+    <dimen name="content_margin">4dp</dimen>
+    <dimen name="content_margin_2x">8dp</dimen>
+    <dimen name="card_margin">16dp</dimen>
+</resources>

@@ -1,0 +1,34 @@
+name: Build
+
+on:
+  push:
+    tags: [ '*' ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Decrypt keystore file
+        env:
+          ENCRYPTION_KEY: ${{ secrets.ENCRYPTION_KEY }}
+        run: gpg --batch --decrypt --output=release.jks --passphrase=$ENCRYPTION_KEY --quiet --yes release.jks.gpg
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          distribution: temurin
+          java-version: '11'
+          cache: gradle
+      - name: Ensure gradlew has +x
+        run: chmod +x ./gradlew
+      - name: Build the app
+        env:
+          SIGNING_KEYSTORE: release.jks
+          SIGNING_KEYSTORE_PASSWORD: ${{ secrets.SIGNING_KEYSTORE_PASSWORD }}
+          SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+        run: ./gradlew assembleRelease
+      - name: Publish release assets
+        uses: softprops/action-gh-release@v1
+        with:
+          files: app/build/outputs/apk/release/app-release.apk

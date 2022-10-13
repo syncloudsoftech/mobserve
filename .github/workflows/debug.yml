@@ -1,0 +1,26 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          distribution: temurin
+          java-version: '11'
+          cache: gradle
+      - name: Ensure gradlew has +x
+        run: chmod +x ./gradlew
+      - name: Build the app
+        run: ./gradlew assembleDebug
+      - name: Publish build output
+        uses: actions/upload-artifact@v2
+        with:
+          name: Debug app
+          path: app/build/outputs/apk/debug/app-debug.apk
